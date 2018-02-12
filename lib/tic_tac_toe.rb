@@ -21,6 +21,7 @@ def input_to_index(user_input)
   user_input.to_i - 1
 end
 
+#### Turn
 def move(board, index, current_player = "X")
   board[index] = current_player
 end
@@ -53,7 +54,7 @@ def play(board)
   end
 end
 
-##### Turn
+##### Player
 def turn_count(board)
   counter = 0
   board.each do |square|
