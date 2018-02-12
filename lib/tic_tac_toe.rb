@@ -22,7 +22,7 @@ def input_to_index(user_input)
 end
 
 #### Turn
-def move(board, index, current_player = "X")
+def move(board, index, current_player)
   board[index] = current_player
 end
 
@@ -46,13 +46,6 @@ def turn(board)
   end
 end
 
-def play(board)
-  i = 0
-  while i < 9
-    turn(board)
-    i += 1
-  end
-end
 
 ##### Player
 def turn_count(board)
@@ -99,5 +92,16 @@ def winner(board)
     board[i]
   else
     nil
+  end
+end
+
+def play(board)
+  until over?(board)
+    turn(board)
+  end
+  if draw?(board)
+    puts "Cat's Game!"
+  else
+    puts "Congratulations #{winner(board)!}"
   end
 end
